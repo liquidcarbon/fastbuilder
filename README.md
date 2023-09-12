@@ -56,3 +56,29 @@ git add .
 git commit -m "added a file"
 git push -u origin 01
 ```
+
+Output:
+```
+a@SNAVVV:~/code/fastbuilder$ git add .
+a@SNAVVV:~/code/fastbuilder$ git commit -m "added a file"
+[01 9ff1bca] added a file
+ 2 files changed, 26 insertions(+), 2 deletions(-)
+ rewrite README.md (100%)
+ create mode 100644 assets/images/01-VSCode.png
+
+a@SNAVVV:~/code/fastbuilder$ git push -u origin 01
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (9/9), 67.15 KiB | 16.79 MiB/s, done.
+Total 9 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+remote: 
+remote: Create a pull request for '01' on GitHub by visiting:
+remote:      https://github.com/liquidcarbon/fastbuilder/pull/new/01
+remote: 
+To https://github.com/liquidcarbon/fastbuilder.git
+ * [new branch]      01 -> 01
+Branch '01' set up to track remote branch '01' from 'origin'.
+```
