@@ -32,10 +32,10 @@ Branch '00' set up to track remote branch '00' from 'origin'.
 
 ## 0.2. Edit README.md
 
-Editing README file in the browser makes it easy to add images.  Simply hit "Paste" while in the editor:
+Editing README file in the browser makes it easy to add images.  Simply hit "Paste" while in the editor:  
 ![image](https://github.com/liquidcarbon/fastbuilder/assets/47034358/224976b4-7b80-43da-bf5a-bed8cec99086)
 
-The image gets uploaded into a special place on Github.  A markdown link appears in the web editor.
+The image gets uploaded into a special place on Github.  A markdown link appears in the web editor.  
 ![image](https://github.com/liquidcarbon/fastbuilder/assets/47034358/340ed960-ae35-444f-8298-e9c25c010a98)
 
 Now press "Commit changes".
@@ -44,4 +44,17 @@ Now press "Commit changes".
 
 ## 0.3. Pull the changes locally
 
-`git pull`
+```bash
+a@SNAVVV:~/code/fastbuilder$ git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 1.41 KiB | 1.41 MiB/s, done.
+From https://github.com/liquidcarbon/fastbuilder
+   8f82072..d7282b5  00         -> origin/00
+Updating 8f82072..d7282b5
+Fast-forward
+ README.md | 49 +++++++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 47 insertions(+), 2 deletions(-)
+```
