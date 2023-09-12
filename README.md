@@ -74,7 +74,7 @@ Bumping version from 0.1.0 to 0.2.0
 
 ## 2.4. Commit and push
 
-Notice how simple `git push` does not work, because there is no upstream branch in the remote repo.
+Notice how simple `git push` does not work, because our branch does not exist in the remote repo.  Once the first commit to a new remote branch is made, the subsequent commits can be pushed with `git push`.
 
 ```
 a@SNAVVV:~/code/fastbuilder$ git status
