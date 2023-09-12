@@ -1,86 +1,73 @@
-# [`00 <- `](https://github.com/liquidcarbon/fastbuilder/tree/00)**`01`**[` -> 02`](https://github.com/liquidcarbon/fastbuilder/tree/02)
+# [`01 <- `](https://github.com/liquidcarbon/fastbuilder/tree/01)**`02`**[` -> 03`](https://github.com/liquidcarbon/fastbuilder/tree/03)
 
-# Step 1.  Add a file.
+# Step 2.  Poetry
 
-## 1.1. Switch back to branch `main` and create a new branch.
+## 2.1. Create poetry environment
 
-```bash
-git checkout main
-git checkout -b 01
-```
-
-## 1.2. Open VSCode
+[Poetry](https://python-poetry.org/docs/) is a tool for dependency management and packaging in Python.  We will use it to install necessary packages.
 
 ```bash
-code .
-```
-
-Notice that the `README.md` file that we edited in the previous step is back to what it was in the empty repo.  This is because we made the changes in a separate branch.  When collaborating on a project, making changes in separate branches protects the `main`, working branch of the project, and the changes are reviewed and merged with previous code through the pull request process.  Here, we do not intend to merge the branches - rather, they serve as a time machine to go forward and back to follow and retrace our steps of building the project.
-
-## 1.3. Open VSCode Terminal (```Ctrl + ` ```)
-
-Run the commands shown in the screenshot to create two folders.
-
-![first file added to repo](assets/images/01-VSCode.png)
-
-## 1.4. Make a screenshot and paste into the README file.
-
-Like in Github editor, the image is pasted as a new file, and a link to new file appears in the editor.  Rename this file and move it to `assets/images`.
-
-## 1.5. Push the changes to a remote branch.
-
-You can run these commands in either VSCode or your system terminal.
-
-```bash
-git status
+git checkout 01
+git checkout -b 02
+poetry init
 ```
 
 Output:
 ```
-a@SNAVVV:~/code/fastbuilder$ git status
-On branch 01
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        modified:   README.md
+a@SNAVVV:~/code/fastbuilder$ poetry init
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        assets/
+This command will guide you through creating your pyproject.toml config.
 
-no changes added to commit (use "git add" and/or "git commit -a")
+Package name [fastbuilder]:  
+Version [0.1.0]:  
+Description []:  Step-by-step tutorial for building a FastAPI data app
+Author [liquidcarbon <akscrps@gmail.com>, n to skip]:  
+License []:  
+Compatible Python versions [^3.11]:  
+
+Would you like to define your main dependencies interactively? (yes/no) [yes] no
+Would you like to define your development dependencies interactively? (yes/no) [yes] no
+Generated file
+
+[tool.poetry]
+name = "fastbuilder"
+version = "0.1.0"
+description = "Step-by-step tutorial for building a FastAPI data app"
+authors = ["liquidcarbon <akscrps@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+Do you confirm generation? (yes/no) [yes] yes
 ```
 
-It is a good practice to check what's going on using `git status` before staging and committing.
+## 2.2. Install the virtual environment
 
 ```bash
-git add .
-git commit -m "added a file"
-git push -u origin 01
+poetry install
 ```
 
 Output:
 ```
-a@SNAVVV:~/code/fastbuilder$ git add .
-a@SNAVVV:~/code/fastbuilder$ git commit -m "added a file"
-[01 9ff1bca] added a file
- 2 files changed, 26 insertions(+), 2 deletions(-)
- rewrite README.md (100%)
- create mode 100644 assets/images/01-VSCode.png
+Creating virtualenv fastbuilder-GAaJdjFf-py3.11 in /home/a/.cache/pypoetry/virtualenvs
+Updating dependencies
+Resolving dependencies... (0.1s)
+```
 
-a@SNAVVV:~/code/fastbuilder$ git push -u origin 01
-Enumerating objects: 11, done.
-Counting objects: 100% (11/11), done.
-Delta compression using up to 4 threads
-Compressing objects: 100% (7/7), done.
-Writing objects: 100% (9/9), 67.15 KiB | 16.79 MiB/s, done.
-Total 9 (delta 1), reused 0 (delta 0)
-remote: Resolving deltas: 100% (1/1), done.
-remote: 
-remote: Create a pull request for '01' on GitHub by visiting:
-remote:      https://github.com/liquidcarbon/fastbuilder/pull/new/01
-remote: 
-To https://github.com/liquidcarbon/fastbuilder.git
- * [new branch]      01 -> 01
-Branch '01' set up to track remote branch '01' from 'origin'.
+## 2.3. Bump the minor version
+
+```bash
+poetry version minor
+```
+
+Output:
+```
+Bumping version from 0.1.0 to 0.2.0
 ```
