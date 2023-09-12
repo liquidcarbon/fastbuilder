@@ -33,12 +33,15 @@ Branch '00' set up to track remote branch '00' from 'origin'.
 ## 0.2. Edit README.md
 
 Editing README file in the browser makes it easy to add images.  Simply hit "Paste" while in the editor:  
+
 ![image](https://github.com/liquidcarbon/fastbuilder/assets/47034358/224976b4-7b80-43da-bf5a-bed8cec99086)
 
 The image gets uploaded into a special place on Github.  A markdown link appears in the web editor.  
+
 ![image](https://github.com/liquidcarbon/fastbuilder/assets/47034358/340ed960-ae35-444f-8298-e9c25c010a98)
 
 Now press "Commit changes".
+
 ![image](https://github.com/liquidcarbon/fastbuilder/assets/47034358/fff67f6c-f8d0-45a9-969d-18a854e53b0c)
 
 
