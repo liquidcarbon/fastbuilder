@@ -1,120 +1,60 @@
-# [`01 <- `](https://github.com/liquidcarbon/fastbuilder/tree/01)**`02`**[` -> 03`](https://github.com/liquidcarbon/fastbuilder/tree/03)
+# [`02 <- `](https://github.com/liquidcarbon/fastbuilder/tree/02)**`03`**[` -> 04`](https://github.com/liquidcarbon/fastbuilder/tree/04)
 
-# Step 2.  Poetry
+# Step 3.  Add a package and make an HTTP request
 
-## 2.1. Create poetry environment
-
-[Poetry](https://python-poetry.org/docs/) is a tool for dependency management and packaging in Python.  We will use it to install necessary packages.
+## 3.1. Add `requests`
 
 ```bash
-git checkout 01
-git checkout -b 02
-poetry init
+poetry add requests
 ```
 
 Output:
 ```
-a@SNAVVV:~/code/fastbuilder$ poetry init
+Using version ^2.31.0 for requests
 
-This command will guide you through creating your pyproject.toml config.
-
-Package name [fastbuilder]:  
-Version [0.1.0]:  
-Description []:  Step-by-step tutorial for building a FastAPI data app
-Author [liquidcarbon <akscrps@gmail.com>, n to skip]:  
-License []:  
-Compatible Python versions [^3.11]:  
-
-Would you like to define your main dependencies interactively? (yes/no) [yes] no
-Would you like to define your development dependencies interactively? (yes/no) [yes] no
-Generated file
-
-[tool.poetry]
-name = "fastbuilder"
-version = "0.1.0"
-description = "Step-by-step tutorial for building a FastAPI data app"
-authors = ["liquidcarbon <akscrps@gmail.com>"]
-readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.11"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
-
-Do you confirm generation? (yes/no) [yes] yes
-```
-
-## 2.2. Install the virtual environment
-
-```bash
-poetry install
-```
-
-Output:
-```
-Creating virtualenv fastbuilder-GAaJdjFf-py3.11 in /home/a/.cache/pypoetry/virtualenvs
 Updating dependencies
-Resolving dependencies... (0.1s)
+Resolving dependencies... (0.2s)
+
+Package operations: 5 installs, 0 updates, 0 removals
+
+  • Installing certifi (2023.7.22)
+  • Installing charset-normalizer (3.2.0)
+  • Installing idna (3.4)
+  • Installing urllib3 (2.0.4)
+  • Installing requests (2.31.0)
+
+Writing lock file
 ```
 
-## 2.3. Bump the minor version
+## 3.2. Check execution environment
+
+To run commands from within Poetry's virtual environment, prefix familiar commands with `poetry run`.  First, let's check what is the python executable associated with our repo.  Notice how the output is different from plain `which python`:
 
 ```bash
-poetry version minor
+which python; poetry run which python
 ```
 
 Output:
 ```
-Bumping version from 0.1.0 to 0.2.0
+/home/a/.pyenv/shims/python
+/home/a/.cache/pypoetry/virtualenvs/fastbuilder-GAaJdjFf-py3.11/bin/python
 ```
 
-## 2.4. Commit and push
+Similarly, `pip install ...` will place a new package into the base python environment.  We will normally use `poetry add ...` to install packages and its dependencies.  Counterintuitively, to add a package to the current environment without the help of poetry, use `poetry run pip install ...`.
 
-Notice how simple `git push` does not work, because our branch does not exist in the remote repo.  Once the first commit to a new remote branch is made, the subsequent commits can be pushed with `git push`.
+## 3.2. Use `requests` to make an API call
 
+Let's find out where the [International Space Station](https://wheretheiss.at/w/developer) is at.
+
+```bash
+poetry run python -c 'import requests; response = requests.get("https://api.wheretheiss.at/v1/satellites/25544"); print(response.json())'
 ```
-a@SNAVVV:~/code/fastbuilder$ git status
-On branch 02
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-        modified:   README.md
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        poetry.lock
-        pyproject.toml
-
-no changes added to commit (use "git add" and/or "git commit -a")
-a@SNAVVV:~/code/fastbuilder$ git add .
-a@SNAVVV:~/code/fastbuilder$ git commit -m "poetry, with version bump"
-[02 7a33c2a] poetry, with version bump
- 3 files changed, 94 insertions(+), 86 deletions(-)
- rewrite README.md (96%)
- create mode 100644 poetry.lock
- create mode 100644 pyproject.toml
-a@SNAVVV:~/code/fastbuilder$ git push
-fatal: The current branch 02 has no upstream branch.
-To push the current branch and set the remote as upstream, use
-
-    git push --set-upstream origin 02
-
-a@SNAVVV:~/code/fastbuilder$ git push -u origin 02
-Enumerating objects: 7, done.
-Counting objects: 100% (7/7), done.
-Delta compression using up to 4 threads
-Compressing objects: 100% (5/5), done.
-Writing objects: 100% (5/5), 1.57 KiB | 1.57 MiB/s, done.
-Total 5 (delta 0), reused 0 (delta 0)
-remote: 
-remote: Create a pull request for '02' on GitHub by visiting:
-remote:      https://github.com/liquidcarbon/fastbuilder/pull/new/02
-remote: 
-To https://github.com/liquidcarbon/fastbuilder.git
- * [new branch]      02 -> 02
-Branch '02' set up to track remote branch '02' from 'origin'.
+Output:
 ```
+{'name': 'iss', 'id': 25544, 'latitude': -35.713143945496, 'longitude': 59.38801936154, 'altitude': 428.37857180456, 'velocity': 27559.613154356, 'visibility': 'daylight', 'footprint': 4549.8465802582, 'timestamp': 1694517856, 'daynum': 2460199.9751852, 'solar_lat': 4.1732364027409, 'solar_lon': 8.0299898605422, 'units': 'kilometers'}
+```
+
+Running `curl -s https://api.wheretheiss.at/v1/satellites/25544` should produce a similar result.
+
+
