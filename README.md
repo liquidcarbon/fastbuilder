@@ -22,7 +22,7 @@ https://github.com/liquidcarbon/fastbuilder/compare/00...01
 
 ## 1.3. Open VSCode Terminal (```Ctrl + ` ```)
 
-Run the commands shown in the screenshot to create two folders.
+Run the **terminal** commands shown in the screenshot to create two folders.
 
 ![first file added to repo](assets/images/01-VSCode.png)
 
