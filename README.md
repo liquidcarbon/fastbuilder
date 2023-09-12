@@ -24,3 +24,35 @@ Run the commands shown in the screenshot to create two folders.
 ## 1.4. Make a screenshot and paste into the README file.
 
 Like in Github editor, the image is pasted as a new file, and a link to new file appears in the editor.  Rename this file and move it to `assets/images`.
+
+## 1.5. Push the changes to a remote branch.
+
+You can run these commands in either VSCode or your system terminal.
+
+```bash
+git status
+```
+
+Output:
+```
+a@SNAVVV:~/code/fastbuilder$ git status
+On branch 01
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        assets/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+It is a good practice to check what's going on using `git status` before staging and committing.
+
+```bash
+git add .
+git commit -m "added a file"
+git push -u origin 01
+```
