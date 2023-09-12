@@ -1,3 +1,5 @@
+# **01** [> 02](https://github.com/liquidcarbon/fastbuilder/tree/01)
+
 # Step 0. Empty repo
 
 ![image](https://github.com/liquidcarbon/fastbuilder/assets/47034358/e15f6f32-fb49-4757-aef3-26510d27d953)
