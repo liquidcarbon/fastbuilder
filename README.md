@@ -1,4 +1,4 @@
-# **00** [> 01](https://github.com/liquidcarbon/fastbuilder/tree/01)
+# **`00`**[` -> 01`](https://github.com/liquidcarbon/fastbuilder/tree/01)
 
 # Step 0. Empty repo
 
