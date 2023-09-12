@@ -57,4 +57,30 @@ Output:
 
 Running `curl -s https://api.wheretheiss.at/v1/satellites/25544` should produce a similar result.
 
+## 3.3. Commit and push
 
+```bash
+poetry version minor; git commit -am "install requests with poetry"; git push -u origin 03
+```
+
+Output:
+```
+Bumping version from 0.2.0 to 0.3.0
+[03 81ba198] install requests with poetry
+ 3 files changed, 207 insertions(+), 123 deletions(-)
+ rewrite README.md (96%)
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 6.18 KiB | 6.18 MiB/s, done.
+Total 5 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote: 
+remote: Create a pull request for '03' on GitHub by visiting:
+remote:      https://github.com/liquidcarbon/fastbuilder/pull/new/03
+remote: 
+To https://github.com/liquidcarbon/fastbuilder.git
+ * [new branch]      03 -> 03
+Branch '03' set up to track remote branch '03' from 'origin'.
+```
