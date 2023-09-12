@@ -17,6 +17,9 @@ code .
 
 Notice that the `README.md` file that we edited in the previous step is back to what it was in the empty repo.  This is because we made the changes in a separate branch.  When collaborating on a project, making changes in separate branches protects the `main`, working branch of the project, and the changes are reviewed and merged with previous code through the pull request process.  Here, we do not intend to merge the branches - rather, they serve as a time machine to go forward and back to follow and retrace our steps of building the project.
 
+If you are following this tutorial, `git checkout X` should give you the final state of the repo after following the steps outlined in the `README.md` of the branch X.  To compare to the previous branch, you can use the compare tool:
+https://github.com/liquidcarbon/fastbuilder/compare/00...01
+
 ## 1.3. Open VSCode Terminal (```Ctrl + ` ```)
 
 Run the commands shown in the screenshot to create two folders.
